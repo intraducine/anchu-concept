@@ -793,6 +793,55 @@ input[type="range"] {
   margin: 10px 0 14px;
 }
 
+.origin-section {
+  background: var(--cream);
+  color: var(--black);
+}
+
+.origin-section .eyebrow {
+  color: var(--kumkum);
+}
+
+.origin-section .section-intro p {
+  color: rgba(4, 8, 6, 0.68);
+}
+
+.origin-grid {
+  display: grid;
+  gap: 14px;
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.origin-card {
+  background: #f3ead0;
+  border: 1px solid rgba(4, 8, 6, 0.14);
+  border-radius: 26px;
+  min-height: 260px;
+  padding: clamp(22px, 4vw, 36px);
+  transition: transform 180ms ease, box-shadow 180ms ease;
+}
+
+.origin-card:hover {
+  box-shadow: 10px 10px 0 var(--black);
+  transform: translate(-3px, -3px);
+}
+
+.origin-card span {
+  color: var(--kumkum);
+  font-family: var(--mono);
+  font-size: 12px;
+  font-weight: 800;
+}
+
+.origin-card h3 {
+  margin: 46px 0 14px;
+}
+
+.origin-card p {
+  color: rgba(4, 8, 6, 0.68);
+  line-height: 1.55;
+}
+
 .reserve-section {
   background:
     linear-gradient(135deg, rgba(19, 93, 53, 0.72), rgba(4, 8, 6, 0.95)),
@@ -1103,6 +1152,7 @@ input[type="range"] {
   .section-intro,
   .signal-grid,
   .system-board,
+  .origin-grid,
   .reserve-section {
     grid-template-columns: 1fr;
   }

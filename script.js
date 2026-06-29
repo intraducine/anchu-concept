@@ -185,6 +185,39 @@ function setStage(stage) {
   document.querySelector("[data-stage-copy]").textContent = data.copy;
 }
 
+function setupPlateNotes() {
+  const readout = document.querySelector("[data-note-readout]");
+  const buttons = document.querySelectorAll("[data-note]");
+  if (!readout || buttons.length === 0) return;
+
+  buttons.forEach((button) => {
+    button.addEventListener("click", () => {
+      buttons.forEach((item) => item.classList.toggle("is-active", item === button));
+      readout.textContent = button.dataset.note;
+    });
+  });
+}
+
+function setupTiltCards() {
+  const prefersReducedMotion = matchMedia("(prefers-reduced-motion: reduce)").matches;
+  if (prefersReducedMotion) return;
+
+  document.querySelectorAll("[data-tilt-card]").forEach((card) => {
+    card.addEventListener("pointermove", (event) => {
+      const bounds = card.getBoundingClientRect();
+      const x = ((event.clientX - bounds.left) / bounds.width - 0.5) * 2;
+      const y = ((event.clientY - bounds.top) / bounds.height - 0.5) * 2;
+      card.style.setProperty("--tilt-x", x.toFixed(3));
+      card.style.setProperty("--tilt-y", y.toFixed(3));
+    });
+
+    card.addEventListener("pointerleave", () => {
+      card.style.setProperty("--tilt-x", "0");
+      card.style.setProperty("--tilt-y", "0");
+    });
+  });
+}
+
 function renderCommands(query = "") {
   const normalized = query.trim().toLowerCase();
   const filtered = commands.filter((command) => command.label.toLowerCase().includes(normalized) || command.hint.toLowerCase().includes(normalized));
@@ -222,7 +255,7 @@ function setupCanvas() {
     y: Math.random(),
     r: 1 + Math.random() * 2.8,
     speed: 0.0015 + Math.random() * 0.003,
-    hue: Math.random() > 0.55 ? "#f5b642" : "#ef4b3f"
+    hue: Math.random() > 0.55 ? "#f2b431" : "#b72e26"
   }));
 
   function resize() {
@@ -352,6 +385,8 @@ addEventListener("resize", updateScrollMeter);
 renderCart();
 updateFlavorSignal();
 updateClock();
+setupPlateNotes();
+setupTiltCards();
 setupCanvas();
 updateScrollMeter();
 setInterval(updateClock, 15000);

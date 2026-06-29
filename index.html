@@ -8,7 +8,7 @@
       name="description"
       content="A tech-forward interactive concept site for Anchu, a small-batch South Indian food project in Cincinnati."
     />
-    <meta name="theme-color" content="#07130d" />
+    <meta name="theme-color" content="#69b6d7" />
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -111,9 +111,14 @@
             <span>Batch telemetry</span>
             <strong data-live-clock>09:59</strong>
           </div>
-          <div class="hero-visual">
+          <div class="hero-visual" data-tilt-card>
             <img src="assets/hero-south-indian.png" alt="South Indian food spread with chicken pickle, dosa, idli, and chutneys" />
-            <div class="scan-line" aria-hidden="true"></div>
+            <div class="flavor-notes" aria-label="Flavor notes on the plate">
+              <button type="button" data-note="Chile oil is the anchor: warm, red, and built for rice.">chile oil</button>
+              <button type="button" data-note="Curry leaf gives the batch that sharp, toasted South Indian lift.">curry leaf</button>
+              <button type="button" data-note="Tang keeps the jar bright instead of heavy.">tang</button>
+            </div>
+            <p class="plate-readout" data-note-readout>Tap a note on the plate.</p>
           </div>
           <div class="metrics-grid">
             <article>

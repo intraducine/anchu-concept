@@ -1,0 +1,407 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Anchu Concept | South Indian Batch OS</title>
+    <meta
+      name="description"
+      content="A tech-forward interactive concept site for Anchu, a small-batch South Indian food project in Cincinnati."
+    />
+    <meta name="theme-color" content="#07130d" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;700&family=Newsreader:opsz,wght@6..72,650;6..72,800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <svg class="icon-sprite" aria-hidden="true">
+      <symbol id="arrow-right" viewBox="0 0 24 24"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></symbol>
+      <symbol id="arrow-up-right" viewBox="0 0 24 24"><path d="M7 7h10v10"/><path d="M7 17 17 7"/></symbol>
+      <symbol id="cart" viewBox="0 0 24 24"><circle cx="8" cy="21" r="1"/><circle cx="19" cy="21" r="1"/><path d="M2.1 2.1h3l2.7 12.4a2 2 0 0 0 2 1.6h7.3a2 2 0 0 0 2-1.6l1.6-8.4H6.1"/></symbol>
+      <symbol id="check" viewBox="0 0 24 24"><path d="m20 6-11 11-5-5"/></symbol>
+      <symbol id="chevron-down" viewBox="0 0 24 24"><path d="m6 9 6 6 6-6"/></symbol>
+      <symbol id="clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></symbol>
+      <symbol id="command" viewBox="0 0 24 24"><path d="M18 3a3 3 0 0 0-3 3v12a3 3 0 1 0 3-3H6a3 3 0 1 0 3 3V6a3 3 0 1 0-3 3h12a3 3 0 1 0 0-6Z"/></symbol>
+      <symbol id="flame" viewBox="0 0 24 24"><path d="M8.5 14.5A4.5 4.5 0 0 0 13 19a5 5 0 0 0 5-5c0-4-3-7-3-10-2 1-3.5 3-3.5 5C10 7.5 9 6 7 5c.5 3-2 5-2 8a7 7 0 0 0 7 7"/></symbol>
+      <symbol id="mail" viewBox="0 0 24 24"><path d="M4 4h16a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2Z"/><path d="m22 6-10 7L2 6"/></symbol>
+      <symbol id="menu" viewBox="0 0 24 24"><path d="M4 6h16"/><path d="M4 12h16"/><path d="M4 18h16"/></symbol>
+      <symbol id="message" viewBox="0 0 24 24"><path d="M21 11.5a8.5 8.5 0 0 1-12.3 7.6L3 21l1.9-5.7A8.5 8.5 0 1 1 21 11.5Z"/></symbol>
+      <symbol id="minus" viewBox="0 0 24 24"><path d="M5 12h14"/></symbol>
+      <symbol id="plus" viewBox="0 0 24 24"><path d="M12 5v14"/><path d="M5 12h14"/></symbol>
+      <symbol id="radar" viewBox="0 0 24 24"><path d="M12 12 20 4"/><circle cx="12" cy="12" r="9"/><path d="M16 12a4 4 0 1 1-4-4"/></symbol>
+      <symbol id="send" viewBox="0 0 24 24"><path d="m22 2-7 20-4-9-9-4Z"/><path d="M22 2 11 13"/></symbol>
+      <symbol id="spark" viewBox="0 0 24 24"><path d="M12 2 9 9l-7 3 7 3 3 7 3-7 7-3-7-3-3-7Z"/></symbol>
+      <symbol id="x" viewBox="0 0 24 24"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></symbol>
+    </svg>
+
+    <div class="scroll-meter" aria-hidden="true"></div>
+
+    <header class="topbar" data-topbar>
+      <a class="brand" href="#top" aria-label="Anchu Concept home">
+        <img src="assets/anchu-logo.jpeg" alt="Anchu logo" />
+        <span>Anchu</span>
+        <strong>Batch OS</strong>
+      </a>
+
+      <nav class="nav" aria-label="Main navigation">
+        <a href="#menu">Menu</a>
+        <a href="#signal">Signal</a>
+        <a href="#reserve">Reserve</a>
+        <button class="nav-command" type="button" data-command-open>
+          <svg class="icon" aria-hidden="true"><use href="#command"></use></svg>
+          <span>Command</span>
+          <kbd>⌘K</kbd>
+        </button>
+      </nav>
+
+      <div class="topbar-actions">
+        <button class="icon-button" type="button" data-cart-open aria-label="Open cart">
+          <svg class="icon" aria-hidden="true"><use href="#cart"></use></svg>
+          <span class="cart-count" data-cart-count>0</span>
+        </button>
+        <button class="icon-button mobile-menu-button" type="button" data-menu-open aria-label="Open menu">
+          <svg class="icon" aria-hidden="true"><use href="#menu"></use></svg>
+        </button>
+      </div>
+    </header>
+
+    <aside class="mobile-menu" data-mobile-menu aria-hidden="true">
+      <div class="mobile-menu-header">
+        <span>Navigation</span>
+        <button class="icon-button" type="button" data-menu-close aria-label="Close menu">
+          <svg class="icon" aria-hidden="true"><use href="#x"></use></svg>
+        </button>
+      </div>
+      <a href="#menu">Menu</a>
+      <a href="#signal">Signal</a>
+      <a href="#reserve">Reserve</a>
+      <button type="button" data-command-open>Open command palette</button>
+    </aside>
+
+    <main id="top">
+      <section class="hero section-dark" aria-labelledby="hero-title">
+        <canvas class="spice-canvas" data-spice-canvas aria-hidden="true"></canvas>
+        <div class="hero-copy reveal">
+          <p class="eyebrow">Cincinnati · small-batch South Indian food</p>
+          <h1 id="hero-title">A restaurant website behaving like a product launch.</h1>
+          <p class="hero-lede">
+            Homemade chicken pickle, pickup-friendly batches, live flavor controls, waitlist logic, and a command
+            palette for the next drop.
+          </p>
+          <div class="hero-actions">
+            <a class="button button-primary" href="#menu">
+              Explore batch
+              <svg class="icon" aria-hidden="true"><use href="#arrow-right"></use></svg>
+            </a>
+            <button class="button button-ghost" type="button" data-command-open>
+              Open command palette
+              <kbd>⌘K</kbd>
+            </button>
+          </div>
+        </div>
+
+        <div class="hero-console reveal">
+          <div class="console-top">
+            <span class="status-dot"></span>
+            <span>Batch telemetry</span>
+            <strong data-live-clock>09:59</strong>
+          </div>
+          <div class="hero-visual">
+            <img src="assets/hero-south-indian.png" alt="South Indian food spread with chicken pickle, dosa, idli, and chutneys" />
+            <div class="scan-line" aria-hidden="true"></div>
+          </div>
+          <div class="metrics-grid">
+            <article>
+              <span>Heat index</span>
+              <strong data-heat-readout>78%</strong>
+              <div class="meter"><i style="--fill: 78%"></i></div>
+            </article>
+            <article>
+              <span>Pickup window</span>
+              <strong>Fri 5-7p</strong>
+              <div class="meter"><i style="--fill: 52%"></i></div>
+            </article>
+            <article>
+              <span>Batch size</span>
+              <strong>24 jars</strong>
+              <div class="meter"><i style="--fill: 64%"></i></div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="ticker" aria-label="Live updates">
+        <div class="ticker-track">
+          <span>Chicken pickle is resting</span>
+          <span>Store pickup · 1801 Elm St Cincinnati, OH</span>
+          <span>Follow Instagram for drop timing</span>
+          <span>Quality ingredients · excellent flavor · community</span>
+        </div>
+      </section>
+
+      <section class="section menu-lab" id="menu" aria-labelledby="menu-title">
+        <div class="section-intro reveal">
+          <p class="eyebrow">Interactive menu layer</p>
+          <h2 id="menu-title">Two jars, one live flavor engine.</h2>
+          <p>
+            Filter the next drop, tune your preference profile, and reserve a batch notification. The original store
+            says out of stock; this concept turns that moment into a useful waitlist.
+          </p>
+        </div>
+
+        <div class="control-strip reveal">
+          <div class="segmented" role="group" aria-label="Filter menu">
+            <button class="is-active" type="button" data-filter="all">All</button>
+            <button type="button" data-filter="large">Large jar</button>
+            <button type="button" data-filter="small">Small jar</button>
+            <button type="button" data-filter="waitlist">Waitlist</button>
+          </div>
+          <button class="button button-compact" type="button" data-cart-open>
+            <svg class="icon" aria-hidden="true"><use href="#cart"></use></svg>
+            Batch cart
+          </button>
+        </div>
+
+        <div class="product-grid">
+          <article class="product-card reveal" data-product-card data-kind="large waitlist">
+            <button class="product-media" type="button" data-detail="large" aria-label="View Large Chicken Pickle">
+              <img src="assets/chicken-pickle-large.png" alt="Large chicken pickle jar on banana leaf" />
+              <span>400g · glass jar</span>
+            </button>
+            <div class="product-copy">
+              <p class="eyebrow">Signature drop</p>
+              <h3>Large Chicken Pickle</h3>
+              <p>Built for rice, dosa, sandwiches, charcuterie, pasta, and the frankly correct move: a spoon.</p>
+              <div class="product-meta">
+                <strong>$25.00</strong>
+                <span>Out of stock</span>
+              </div>
+              <div class="card-actions">
+                <button class="button button-primary" type="button" data-add="large">Join waitlist</button>
+                <button class="icon-button" type="button" data-detail="large" aria-label="View details">
+                  <svg class="icon" aria-hidden="true"><use href="#arrow-up-right"></use></svg>
+                </button>
+              </div>
+            </div>
+          </article>
+
+          <article class="product-card reveal" data-product-card data-kind="small waitlist">
+            <button class="product-media" type="button" data-detail="small" aria-label="View Small Chicken Pickle">
+              <img src="assets/chicken-pickle-small.png" alt="Small chicken pickle jar with idli and curry leaves" />
+              <span>Small jar · first taste</span>
+            </button>
+            <div class="product-copy">
+              <p class="eyebrow">Starter drop</p>
+              <h3>Small Chicken Pickle</h3>
+              <p>A smaller batch path for trying the signature flavor profile before committing to the larger jar.</p>
+              <div class="product-meta">
+                <strong>$14.00</strong>
+                <span>Out of stock</span>
+              </div>
+              <div class="card-actions">
+                <button class="button button-primary" type="button" data-add="small">Join waitlist</button>
+                <button class="icon-button" type="button" data-detail="small" aria-label="View details">
+                  <svg class="icon" aria-hidden="true"><use href="#arrow-up-right"></use></svg>
+                </button>
+              </div>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section class="section signal-section" id="signal" aria-labelledby="signal-title">
+        <div class="section-intro reveal">
+          <p class="eyebrow">Flavor signal</p>
+          <h2 id="signal-title">Tune your jar before the batch exists.</h2>
+          <p>
+            Drag the controls and the profile reacts. It is part recommendation engine, part playful stand-in for the
+            way homemade food gets discussed at the table.
+          </p>
+        </div>
+
+        <div class="signal-grid">
+          <div class="flavor-panel reveal">
+            <label>
+              Heat
+              <input type="range" min="0" max="100" value="78" data-flavor="heat" />
+            </label>
+            <label>
+              Tang
+              <input type="range" min="0" max="100" value="62" data-flavor="tang" />
+            </label>
+            <label>
+              Garlic
+              <input type="range" min="0" max="100" value="86" data-flavor="garlic" />
+            </label>
+            <label>
+              Crunch
+              <input type="range" min="0" max="100" value="42" data-flavor="crunch" />
+            </label>
+          </div>
+
+          <div class="radar-panel reveal" aria-live="polite">
+            <div class="radar-head">
+              <svg class="icon" aria-hidden="true"><use href="#radar"></use></svg>
+              <span>Flavor vector</span>
+            </div>
+            <div class="bars">
+              <span>Heat <i data-bar="heat"></i></span>
+              <span>Tang <i data-bar="tang"></i></span>
+              <span>Garlic <i data-bar="garlic"></i></span>
+              <span>Crunch <i data-bar="crunch"></i></span>
+            </div>
+            <h3 data-flavor-title>Hot, garlicky, rice-ready.</h3>
+            <p data-flavor-copy>
+              Best route: large jar, weekday rice bowls, and a warning to anyone who thinks a tiny spoon is enough.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section class="section system-section" aria-labelledby="system-title">
+        <div class="system-board reveal">
+          <div>
+            <p class="eyebrow">Batch system</p>
+            <h2 id="system-title">A restaurant backend you can taste.</h2>
+          </div>
+          <div class="system-steps">
+            <button class="system-step is-active" type="button" data-stage="prep">
+              <span>01</span>
+              Prep masala
+            </button>
+            <button class="system-step" type="button" data-stage="rest">
+              <span>02</span>
+              Oil rest
+            </button>
+            <button class="system-step" type="button" data-stage="pack">
+              <span>03</span>
+              Jar & label
+            </button>
+            <button class="system-step" type="button" data-stage="pickup">
+              <span>04</span>
+              Pickup
+            </button>
+          </div>
+          <div class="stage-readout">
+            <span data-stage-kicker>Current stage</span>
+            <strong data-stage-title>Prep masala</strong>
+            <p data-stage-copy>
+              Aromatics, chile, and spice ratios are tuned before the oil takes over. This is where the flavor signature
+              gets set.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section class="section reserve-section" id="reserve" aria-labelledby="reserve-title">
+        <div class="reserve-copy reveal">
+          <p class="eyebrow">Reserve signal</p>
+          <h2 id="reserve-title">Tell the next batch where to find you.</h2>
+          <p>
+            This does not send a real order; it is a working prototype flow that models the next step: name, pickup
+            slot, jar size, and a local confirmation.
+          </p>
+        </div>
+
+        <form class="reserve-form reveal" data-reserve-form>
+          <label>
+            Name
+            <input name="name" type="text" autocomplete="name" placeholder="Your name" required />
+          </label>
+          <label>
+            Email
+            <input name="email" type="email" autocomplete="email" placeholder="you@example.com" required />
+          </label>
+          <fieldset>
+            <legend>Pickup window</legend>
+            <div class="slot-grid">
+              <button class="is-selected" type="button" data-slot="Fri 5-7p">Fri 5-7p</button>
+              <button type="button" data-slot="Sat 10-12p">Sat 10-12p</button>
+              <button type="button" data-slot="Sun 3-5p">Sun 3-5p</button>
+            </div>
+          </fieldset>
+          <input type="hidden" name="slot" value="Fri 5-7p" data-slot-input />
+          <button class="button button-primary" type="submit">
+            Reserve the signal
+            <svg class="icon" aria-hidden="true"><use href="#send"></use></svg>
+          </button>
+          <p class="form-status" data-form-status role="status" aria-live="polite"></p>
+        </form>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-brand">
+        <img src="assets/anchu-logo.jpeg" alt="Anchu logo" />
+        <div>
+          <strong>Anchu Batch OS</strong>
+          <span>Small-batch Indian food in Cincinnati</span>
+        </div>
+      </div>
+      <div class="footer-links">
+        <a href="mailto:anchu.foods@gmail.com">
+          <svg class="icon" aria-hidden="true"><use href="#mail"></use></svg>
+          Email
+        </a>
+        <a href="https://www.instagram.com/Anchu.co" target="_blank" rel="noreferrer">
+          <svg class="icon" aria-hidden="true"><use href="#arrow-up-right"></use></svg>
+          Instagram
+        </a>
+      </div>
+    </footer>
+
+    <aside class="drawer" data-cart-drawer aria-hidden="true" aria-label="Batch cart">
+      <div class="drawer-panel">
+        <button class="icon-button" type="button" data-cart-close aria-label="Close cart">
+          <svg class="icon" aria-hidden="true"><use href="#x"></use></svg>
+        </button>
+        <p class="eyebrow">Batch cart</p>
+        <h2>Waitlist queue</h2>
+        <div class="cart-items" data-cart-items></div>
+        <button class="button button-primary" type="button" data-cart-checkout>Request batch update</button>
+        <p class="drawer-note" data-cart-note>No payment is collected in this concept.</p>
+      </div>
+    </aside>
+
+    <div class="modal" data-detail-modal aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="detail-title">
+      <div class="modal-scrim" data-detail-close></div>
+      <article class="detail-card">
+        <button class="icon-button" type="button" data-detail-close aria-label="Close details">
+          <svg class="icon" aria-hidden="true"><use href="#x"></use></svg>
+        </button>
+        <img data-detail-image src="assets/chicken-pickle-large.png" alt="" />
+        <div class="detail-copy">
+          <p class="eyebrow" data-detail-kicker>Signature drop</p>
+          <h2 id="detail-title" data-detail-title>Large Chicken Pickle</h2>
+          <p data-detail-copy>400g of our signature Chicken Pickle in a glass jar.</p>
+          <div class="detail-specs">
+            <span><strong data-detail-price>$25</strong> price</span>
+            <span><strong>Out</strong> status</span>
+            <span><strong>1801 Elm</strong> pickup</span>
+          </div>
+          <button class="button button-primary" type="button" data-detail-add>Join waitlist</button>
+        </div>
+      </article>
+    </div>
+
+    <div class="command-modal" data-command-modal aria-hidden="true" role="dialog" aria-modal="true" aria-label="Command palette">
+      <div class="command-panel">
+        <div class="command-input">
+          <svg class="icon" aria-hidden="true"><use href="#command"></use></svg>
+          <input type="search" placeholder="Jump to menu, tune flavor, reserve..." data-command-input />
+          <button type="button" data-command-close aria-label="Close command palette">
+            <svg class="icon" aria-hidden="true"><use href="#x"></use></svg>
+          </button>
+        </div>
+        <div class="command-results" data-command-results></div>
+      </div>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
